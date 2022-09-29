@@ -32,7 +32,7 @@ public class Main {
         System.out.println((char) (aChar + 1));
 
         int a = 10, b = 5;
-        double res;
+        int res;
         res = a + b;
         System.out.println(res);
         res = a - b;
