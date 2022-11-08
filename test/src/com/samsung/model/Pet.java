@@ -4,16 +4,51 @@ public class Pet {
     private String animalName;
     private String ownerName;
     private String animalType;
-    private String[] data;
+    private String[] data = new String[0];
 
+    // конструктор с 3 параметрами
     public Pet(String animalName, String ownerName, String animalType) {
         this.animalName = animalName;
         this.ownerName = ownerName;
         this.animalType = animalType;
     }
 
+    // конструктор с 4 параметрами
+    public Pet(String animalName, String ownerName, String animalType, String[] data) {
+        this.animalName = animalName;
+        this.ownerName = ownerName;
+        this.animalType = animalType;
+        this.data = data;
+    }
+
+    // вывод информации о питомце
     public void printInfo() {
         System.out.println(this);
+    }
+
+    // добавление посещения
+    public void addVisit(String visit) {
+        String[] temp = new String[this.data.length + 1];
+        for (int i = 0; i < this.data.length; i++) {
+            temp[i] = this.data[i];
+        }
+        temp[this.data.length] = visit;
+        this.data = temp;
+    }
+
+    // вывод всех посещений
+    public void allVisit() {
+        if (this.data.length == 0) {
+            System.out.println("Нет посещений");
+        } else {
+            System.out.print("Посещения питомца с именем " + this.animalName + ": ");
+            for (int i = 0; i < this.data.length; i++) {
+                System.out.print(this.data[i] + " ");
+                if (i == this.data.length - 1) {
+                    System.out.print("\n");
+                }
+            }
+        }
     }
 
     @Override
