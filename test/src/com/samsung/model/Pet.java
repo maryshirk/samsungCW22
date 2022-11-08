@@ -38,10 +38,10 @@ public class Pet {
 
     // вывод всех посещений
     public void allVisit() {
+        System.out.print("Посещения питомца с именем " + this.animalName + ": ");
         if (this.data.length == 0) {
-            System.out.println("Нет посещений");
+            System.out.println("нет посещений");
         } else {
-            System.out.print("Посещения питомца с именем " + this.animalName + ": ");
             for (int i = 0; i < this.data.length; i++) {
                 System.out.print(this.data[i] + " ");
                 if (i == this.data.length - 1) {
