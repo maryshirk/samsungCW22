@@ -6,27 +6,26 @@ import com.samsung.model.Warrior;
 
 public class App {
     public static void main(String[] args) {
-        Unit unit1 = new Unit(
-                "Мудрый дуб",
-                100
-        );
-        System.out.println(unit1);
 
         Warrior warrior1 = new Warrior(
                 "Валлера",
-                250,
-                100
+                100,
+                10
         );
-        System.out.println(warrior1);
 
         Mage mage1 = new Mage(
                 "Виталий",
-                90
+                60
         );
-        System.out.println(mage1);
 
-        Unit unit2 = mage1;
-        System.out.println(unit2);
-        System.out.println(((Mage)unit2).getMp());
+        while (warrior1.getHp() > 0 && mage1.getHp() > 0) {
+            warrior1.attack(mage1);
+            mage1.attack(warrior1);
+        }
+
+        System.out.println("++++++++");
+
+        System.out.println(mage1);
+        System.out.println(warrior1);
     }
 }

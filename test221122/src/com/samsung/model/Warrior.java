@@ -13,6 +13,11 @@ public class Warrior extends Unit{
     }
 
     @Override
+    public void sayHello() {
+        System.out.println("Привет, я воин!");
+    }
+
+    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("=========================\n")
@@ -22,5 +27,20 @@ public class Warrior extends Unit{
                 .append("HP: ").append(getHp()).append("\n")
                 .append("Armor: ").append(getArmor());
         return builder.toString();
+    }
+
+    @Override
+    public Unit attack(Unit unit) {
+        return null;
+    }
+
+    @Override
+    public void getDmg(int dmg) {
+        if (this.armor > 0) {
+            this.armor -= 1;
+            this.hp -= dmg / 2;
+        } else {
+            this.hp -= dmg;
+        }
     }
 }

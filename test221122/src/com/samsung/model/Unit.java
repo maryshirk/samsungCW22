@@ -1,6 +1,7 @@
 package com.samsung.model;
 
-public class Unit {
+public abstract class Unit implements Battle {
+    public final static int K_DMG = 10;
     private String name;
     protected int hp;
 
@@ -16,6 +17,8 @@ public class Unit {
     public int getHp() {
         return hp;
     }
+
+    public abstract void sayHello();
 
     @Override
     public String toString() {

@@ -13,6 +13,11 @@ public class Mage extends Unit{
     }
 
     @Override
+    public void sayHello() {
+        System.out.println("Привет, я маг!");
+    }
+
+    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("=========================\n")
@@ -22,5 +27,22 @@ public class Mage extends Unit{
                 .append("HP: ").append(getHp()).append("\n")
                 .append("Mp: ").append(getMp());
         return builder.toString();
+    }
+
+    @Override
+    public Unit attack(Unit unit) {
+        // unit.getClass().equals(this.getClass());
+        if (this.mp > 0) {
+            this.mp -= 5;
+            unit.getDmg(K_DMG * 2);
+        } else {
+            unit.getDmg(K_DMG);
+        }
+        return unit;
+    }
+
+    @Override
+    public void getDmg(int dmg) {
+        this.hp -= dmg;
     }
 }
