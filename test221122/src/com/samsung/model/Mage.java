@@ -21,7 +21,7 @@ public class Mage extends Unit{
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("=========================\n")
-                .append(this.getClass().toString()).append("\n")
+                .append(getClass().toString()).append("\n")
                 .append("========================").append("\n")
                 .append("Name: ").append(getName()).append("\n")
                 .append("HP: ").append(getHp()).append("\n")
