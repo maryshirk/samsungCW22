@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="name_product">Название продукта</string>
+    <string name="date">Дата поступления</string>
+    <string name="amount">Количество</string>
+    <string name="price">Стоимость за единицу</string>
+    <string name="add">Добавить продукт</string>
+    <string name="search">Поиск продукта</string>
+    <string name="searching">Найти продукт</string>
+    <string name="vvod">Введите название продукта</string>
+    <string name="info">Информация о продукте</string>
+    <string name="nothing">Информация о продукте отсутствует</string>
+</resources>

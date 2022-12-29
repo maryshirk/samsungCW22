@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_name_product"
+        android:hint="@string/name_product"
+        android:inputType="textCapWords"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        />
+
+    <EditText
+        android:id="@+id/et_date"
+        android:hint="@string/date"
+        android:inputType="textCapWords"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/et_amount"
+        android:hint="@string/amount"
+        android:inputType="textCapWords"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/et_price"
+        android:hint="@string/price"
+        android:inputType="textCapWords"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_adder"
+        android:background="@color/purple_500"
+        android:inputType="textCapWords"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:text="@string/add"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_searcher"
+        android:background="@color/purple_500"
+        android:inputType="textCapWords"
+        android:textSize="20sp"
+        android:text="@string/search"
+        android:textColor="@color/white"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="250dp" />
+
+</LinearLayout>
