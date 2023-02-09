@@ -49,7 +49,5 @@ public class App {
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }*/
-
-        
     }
 }
