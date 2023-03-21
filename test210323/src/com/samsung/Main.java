@@ -1,6 +1,8 @@
 package com.samsung;
 
 
+import java.util.Arrays;
+
 public class Main {
     public static void bubbleSort(int[] mas) {
         for (int i = 0; i < mas.length - 1; i++) {
@@ -25,16 +27,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 4, 2, 8, 6};
+        int[] a = new int[]{1, 4, 2, 8, 6};
         bubbleSort(a);
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-        }
+        System.out.println(Arrays.toString(a));
         System.out.println("===============");
         int[] b = {1, 4, 2, 8, 6};
         insertionSort(b);
-        for (int i = 0; i < b.length; i++) {
-            System.out.println(b[i]);
-        }
+        System.out.println(Arrays.toString(b));
     }
 }
