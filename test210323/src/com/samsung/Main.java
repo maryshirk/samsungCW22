@@ -25,13 +25,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 4, 2, 8, 9};
+        int[] a = {1, 4, 2, 8, 6};
         bubbleSort(a);
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
         }
         System.out.println("===============");
-        int[] b = {1, 4, 2, 8, 9};
+        int[] b = {1, 4, 2, 8, 6};
         insertionSort(b);
         for (int i = 0; i < b.length; i++) {
             System.out.println(b[i]);
