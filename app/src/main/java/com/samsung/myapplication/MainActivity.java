@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.samsung.myapplication.domain.Name;
+import com.samsung.myapplication.rest.NameApiService;
 import com.samsung.myapplication.rest.RetrofitService;
 
 import retrofit2.Call;
@@ -21,13 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText firstNameEditText;
     private EditText lastNameEditText;
     private TextView resultTextView;
-
-    private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
-    private RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+    private Button sendButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +35,28 @@ public class MainActivity extends AppCompatActivity {
         firstNameEditText = findViewById(R.id.firstNameEditText);
         lastNameEditText = findViewById(R.id.lastNameEditText);
         resultTextView = findViewById(R.id.resultTextView);
-    }
+        sendButton = findViewById(R.id.sendButton);
 
-    public void sendButtonClicked(View view) {
-        String firstName = firstNameEditText.getText().toString().trim();
-        String lastName = lastNameEditText.getText().toString().trim();
-
-        if (firstName.isEmpty() || lastName.isEmpty()) {
-            Toast.makeText(this, "Введите имя и фамилию", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        retrofitService.convertToLowerCase(firstName, lastName).enqueue(new Callback<String>() {
+        sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                if (response.isSuccessful()) {
-                    String result = response.body().getResult();
-                    resultTextView.setText(result);
-                }
+            public void onClick(View v) {
+                NameApiService.getInstance().getName(
+                                firstNameEditText.getText().toString(),
+                                lastNameEditText.getText().toString())
+                        .enqueue(new Callback<Name>() {
+                            @Override
+                            public void onResponse(Call<Name> call, Response<Name> response) {
+                                resultTextView.setText(response.body().toString());
+                                Log.d("REST", response.body().toString());
+                            }
+
+                            @Override
+                            public void onFailure(Call<Name> call, Throwable t) {
+                                resultTextView.setText(t.getMessage());
+                                Log.d("REST", t.getMessage());
+                            }
+                        });
             }
+        });
+    }
+}
